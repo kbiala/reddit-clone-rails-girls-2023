@@ -12,7 +12,12 @@
   </head>
 
   <body class="bg-blue-50">
-    <header></header>
+    <header>
+      <% if user_signed_in? %>
+        Hi! <%= current_user.email %>
+      <% end %>
+    </header>
+
     <main class="container mx-auto mt-28 px-5 flex">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
