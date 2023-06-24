@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :entries do
     get 'increase_score', on: :member
     get 'decrease_score', on: :member 
