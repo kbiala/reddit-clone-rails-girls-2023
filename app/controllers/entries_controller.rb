@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: %i[ show edit update destroy increase_score decrease_score ]
+  before_action :authenticate_user!, only: %i[ new edit create update destroy ]
 
   # GET /entries or /entries.json
   def index
