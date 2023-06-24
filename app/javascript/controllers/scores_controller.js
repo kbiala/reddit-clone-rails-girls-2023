@@ -24,7 +24,7 @@ export default class extends Controller {
 
     let id = this.idValue;
     let score = this.sumTarget;
-    let url = `/entries/${id}/descrease_score`
+    let url = `/entries/${id}/decrease_score`
 
     fetch(url).then((response) => response.text()).then(response => {
       score.textContent = response;
