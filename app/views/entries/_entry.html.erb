@@ -1,8 +1,17 @@
-<article id="<%= dom_id entry %>" class="flex">
+<article id="<%= dom_id entry %>" class="flex" data-controller="scores" data-scores-id-value="<%=entry.id%>">
   <div class="flex-none text-center bg-gray-50 w-10 pt-3">
-    <div>&uarr;</div>
-    <%= entry.score %>
-    <div>&darr;</div>
+
+    <%= link_to '/', class: 'block', remote: true, 'data-action': 'click->scores#up' do %>
+      &uarr;
+    <% end %>
+
+    <div data-scores-target="sum">
+      <%= entry.score %>
+    </div>
+
+    <%= link_to '/', class: 'block', remote: true, 'data-action': 'click->scores#down' do %>
+      &darr;
+    <% end %>
   </div>
 
   <div class="flex-auto p-6">
