@@ -8,14 +8,22 @@ export default class extends Controller {
   up(e) {
     e.preventDefault();
     e.stopImmediatePropagation();
-    console.log("arrow up is clicked");
+    //console.log("arrow up is clicked");
 
     let id = this.idValue;
     let score = this.sumTarget;
-    console.log( id );
-    console.log( score );
+    //console.log( id );
+    //console.log( score );
+
+    let url = `/entries/${id}/increase_score`
+    //console.log(url)
 
 
+    fetch(url).then((response) => response.text()).then(response => {
+        // handle the response
+        //console.log( response );
+        score.textContent = response;
+      })
   }
 
   down(e) {
@@ -25,6 +33,11 @@ export default class extends Controller {
 
     let id = this.idValue;
     let score = this.sumTarget;
-
+    let url = `/entries/${id}/descrease_score`
+    fetch(url).then((response) => response.text()).then(response => {
+      // handle the response
+      //console.log( response );
+      score.textContent = response;
+    })
   }
 }
