@@ -1,5 +1,5 @@
-<article id="<%= dom_id entry %>" class="flex" data-controller="scores" data-scores-id-value="<%=entry.id%>">
-  <div class="flex-none text-center bg-gray-50 w-10 pt-3">
+<article id="<%= dom_id entry %>" class="flex border border-gray-300 bg-white rounded-md shadow overflow-hidden m-3" data-controller="scores" data-scores-id-value="<%=entry.id%>">
+  <div class="flex-none text-center bg-gray-100 w-10 pt-4 text-gray-500 font-bold">
 
     <%= link_to '/', class: 'block', remote: true, 'data-action': 'click->scores#up' do %>
       &uarr;
@@ -14,26 +14,22 @@
     <% end %>
   </div>
 
-  <div class="flex-auto p-6">
-    <div class="text-xs">
+  <div class="flex-auto p-4">
+    <div class="text-xs text-gray-500 font-bold">
       <%= entry.created_at %>
     </div>
 
-    <p class="my-5">
-      <%= entry.title %>
+    <p class="my-5 font-bold">
+      <%= entry.title %> <span class="ml-1 border bg-gray-200 rounded-full font-medium text-xs px-2 py-1"><%= entry.tag %></span>
     </p>
 
     <p class="my-5">
       <%= entry.content %>
     </p>
 
-    <p class="my-5">
-      <%= entry.tag %>
-    </p>
-
     <% if action_name != "show" %>
-      <%= link_to "Show this entry", entry, class: "inline-block text-xs mr-2" %>
-      <%= link_to 'Edit this entry', edit_entry_path(entry), class: "inline-block text-xs" %>
+      <%= link_to "Show this entry", entry, class: "inline-block text-xs mr-2 text-gray-500 font-bold" %>
+      <%= link_to 'Edit this entry', edit_entry_path(entry), class: "inline-block text-xs text-gray-500 font-bold" %>
     <% end %>
   </div>
 </article>
