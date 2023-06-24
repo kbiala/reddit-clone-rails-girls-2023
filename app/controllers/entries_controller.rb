@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: %i[ show edit update destroy ]
+  before_action :set_entry, only: %i[ show edit update destroy increase_score decrease_score ]
 
   # GET /entries or /entries.json
   def index
@@ -57,10 +57,22 @@ class EntriesController < ApplicationController
     end
   end
 
+  def increase_score
+    @entry.score += 1
+    @entry.save
+    render plain: @entry.score
+  end 
+
+  def decrease_score
+    @entry.score -= 1
+    @entry.save
+    render plain: @entry.score
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
-      @entry = Entry.find(params[:id])
+      @entry = Entry.find( params[:id] )
     end
 
     # Only allow a list of trusted parameters through.
