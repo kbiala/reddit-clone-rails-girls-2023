@@ -28,8 +28,10 @@
     </p>
 
     <% if action_name != "show" %>
-      <%= link_to "Show this entry", entry, class: "inline-block text-xs mr-2 text-gray-500 font-bold" %>
-      <%= link_to 'Edit this entry', edit_entry_path(entry), class: "inline-block text-xs text-gray-500 font-bold" %>
+      <%= link_to "Show", entry, class: "inline-block text-xs mr-2 text-gray-500 font-bold" %>
+      <% if user_signed_in? %>
+        <%= link_to 'Edit', edit_entry_path(entry), class: "inline-block text-xs text-gray-500 font-bold" %>
+    <% end %>
     <% end %>
   </div>
 </article>
