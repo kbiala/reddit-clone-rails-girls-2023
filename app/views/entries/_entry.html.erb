@@ -1,22 +1,23 @@
-<div id="<%= dom_id entry %>">
+<article id="<%= dom_id entry %>">
+  <div class="text-xs">
+    <%= entry.created_at %>
+  </div>
+
   <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
     <%= entry.title %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Content:</strong>
     <%= entry.content %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Tag:</strong>
     <%= entry.tag %>
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this entry", entry, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this entry', edit_entry_path(entry), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show this entry", entry, class: "inline-block text-xs mr-2" %>
+    <%= link_to 'Edit this entry', edit_entry_path(entry), class: "inline-block text-xs" %>
     <hr class="mt-6">
   <% end %>
-</div>
+</article>
